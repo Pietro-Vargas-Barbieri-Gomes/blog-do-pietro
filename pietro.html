@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog do Pietro | Minha Rotina</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #ffffff;
+            background: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* FUNDO ANIMADO */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #00c6ff;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.25;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+            animation: movimento 8s infinite alternate;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.25;
+            bottom: -150px;
+            right: -150px;
+            z-index: -1;
+            animation: movimento2 10s infinite alternate;
+        }
+
+        @keyframes movimento {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(200px, 150px);
+            }
+        }
+
+        @keyframes movimento2 {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-200px, -100px);
+            }
+        }
+
+        /* CABEÇALHO */
+        header {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.55),
+                    rgba(15, 23, 42, 0.9)
+                ),
+                linear-gradient(135deg, #2563eb, #7c3aed);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "☀️";
+            position: absolute;
+            font-size: 120px;
+            top: 30px;
+            right: 10%;
+            opacity: 0.15;
+            animation: flutuar 4s infinite ease-in-out;
+        }
+
+        header::after {
+            content: "⚽";
+            position: absolute;
+            font-size: 100px;
+            bottom: 30px;
+            left: 10%;
+            opacity: 0.15;
+            animation: girar 8s infinite linear;
+        }
+
+        @keyframes flutuar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-25px);
+            }
+        }
+
+        @keyframes girar {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .logo {
+            font-size: 20px;
+            color: #bfdbfe;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            animation: aparecer 1s ease;
+        }
+
+        header h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #93c5fd,
+                #c4b5fd,
+                #ffffff
+            );
+
+            background-size: 300%;
+            -webkit-background-clip: text;
+            color: transparent;
+
+            animation:
+                aparecer 1s ease,
+                brilho 5s infinite;
+        }
+
+        header p {
+            font-size: 21px;
+            color: #dbeafe;
+            max-width: 600px;
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes brilho {
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* BOTÃO */
+        .botao {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 30px;
+            border-radius: 50px;
+
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+
+            background: linear-gradient(135deg, #06b6d4, #2563eb);
+
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.4);
+
+            transition: 0.3s;
+        }
+
+        .botao:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(6, 182, 212, 0.6);
+        }
+
+        /* CONTEÚDO */
+        main {
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 20px;
+        }
+
+        .introducao {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .introducao h2 {
+            font-size: 42px;
+            margin-bottom: 15px;
+
+            background: linear-gradient(
+                90deg,
+                #38bdf8,
+                #a78bfa
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .introducao p {
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        /* CARDS */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            padding: 30px;
+            border-radius: 25px;
+
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            backdrop-filter: blur(15px);
+
+            transition: 0.4s;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #38bdf8;
+            filter: blur(80px);
+            opacity: 0;
+            transition: 0.4s;
+            top: -80px;
+            right: -80px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(56, 189, 248, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 0.3;
+        }
+
+        .icone {
+            font-size: 45px;
+            margin-bottom: 15px;
+            display: inline-block;
+
+            transition: 0.4s;
+        }
+
+        .card:hover .icone {
+            transform: scale(1.2) rotate(8deg);
+        }
+
+        .card h3 {
+            font-size: 27px;
+            margin-bottom: 12px;
+            color: #7dd3fc;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            font-size: 17px;
+        }
+
+        .horario {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 7px 14px;
+            border-radius: 20px;
+
+            color: #bfdbfe;
+            background: rgba(37, 99, 235, 0.2);
+
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* DESTAQUE */
+        .destaque {
+            margin-top: 35px;
+            padding: 40px;
+
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.3),
+                    rgba(124, 58, 237, 0.3)
+                );
+
+            border: 1px solid rgba(147, 197, 253, 0.3);
+
+            text-align: center;
+
+            transition: 0.4s;
+        }
+
+        .destaque:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+        }
+
+        .destaque h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .destaque p {
+            color: #dbeafe;
+            font-size: 18px;
+        }
+
+        /* CONCLUSÃO */
+        .conclusao {
+            margin-top: 70px;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .conclusao h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #a78bfa;
+        }
+
+        .conclusao p {
+            max-width: 700px;
+            margin: auto;
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .tchau {
+            margin-top: 25px;
+            font-size: 25px;
+            color: white;
+        }
+
+        /* RODAPÉ */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #020617;
+            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer strong {
+            color: #38bdf8;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 700px) {
+            header {
+                min-height: 60vh;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .introducao h2 {
+                font-size: 32px;
+            }
+
+            .card {
+                padding: 25px;
+            }
+
+            .destaque {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <div class="logo">
+            ✨ Meu Blog Pessoal ✨
+        </div>
+
+        <h1>Blog do Pietro</h1>
+
+        <p>
+            Minha rotina diária, meus momentos e um pouco
+            sobre o meu dia a dia.
+        </p>
+
+        <a href="#rotina" class="botao">
+            Conheça minha rotina ↓
+        </a>
+
+    </header>
+
+
+    <!-- CONTEÚDO -->
+    <main id="rotina">
+
+        <section class="introducao">
+
+            <h2>Minha Rotina Diária</h2>
+
+            <p>
+                Oi, pessoal! 👋 Eu sou o Pietro e hoje vou
+                contar como é um dia normal da minha vida.
+            </p>
+
+        </section>
+
+
+        <!-- CARDS DA ROTINA -->
+        <section class="cards">
+
+            <!-- MANHÃ -->
+            <div class="card">
+
+                <span class="icone">🌅</span>
+
+                <h3>De manhã</h3>
+
+                <p>
+                    Eu acordo por volta das <strong>6h50</strong>
+                    e me preparo para ir à escola.
+                    Fico lá até aproximadamente
+                    <strong>12h20</strong>.
+                </p>
+
+                <span class="horario">
+                    ⏰ 6h50 — 12h20
+                </span>
+
+            </div>
+
+
+            <!-- ALMOÇO -->
+            <div class="card">
+
+                <span class="icone">🍽️</span>
+
+                <h3>Hora do almoço</h3>
+
+                <p>
+                    Depois da escola, volto para casa,
+                    almoço e descanso um pouco antes
+                    de continuar minhas atividades.
+                </p>
+
+                <span class="horario">
+                    🏠 Depois da escola
+                </span>
+
+            </div>
+
+
+            <!-- TARDE -->
+            <div class="card">
+
+                <span class="icone">🏡</span>
+
+                <h3>À tarde</h3>
+
+                <p>
+                    Depois do almoço, mexo um pouco no celular
+                    e faço os serviços diários.
+                </p>
+
+                <span class="horario">
+                    📱 Tempo da tarde
+                </span>
+
+            </div>
+
+
+            <!-- DIVERSÃO -->
+            <div class="card">
+
+                <span class="icone">⚽</span>
+
+                <h3>Hora da diversão</h3>
+
+                <p>
+                    Depois das minhas tarefas, gosto de jogar
+                    bola com meu irmão ou tratar os bichos.
+                    É uma das partes que mais gosto!
+                </p>
+
+                <span class="horario">
+                    ⚽🐄 Momento divertido
+                </span>
+
+            </div>
+
+
+            <!-- BANHO -->
+            <div class="card">
+
+                <span class="icone">🚿</span>
+
+                <h3>Hora do banho</h3>
+
+                <p>
+                    Quando chega perto das
+                    <strong>18h30</strong>, vou tomar banho.
+                    Depois, continuo mexendo um pouco no celular.
+                </p>
+
+                <span class="horario">
+                    ⏰ 18h30
+                </span>
+
+            </div>
+
+
+            <!-- NOITE -->
+            <div class="card">
+
+                <span class="icone">🌙</span>
+
+                <h3>À noite</h3>
+
+                <p>
+                    Por volta das <strong>20h00</strong>,
+                    vou jantar. Depois da refeição,
+                    lavo a louça.
+                </p>
+
+                <span class="horario">
+                    🍽️ 20h00
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- DESTAQUE -->
+        <section class="destaque">
+
+            <h2>😴 Hora de descansar</h2>
+
+            <p>
+                Quando chega perto das <strong>22h00</strong>,
+                vou dormir para descansar e estar pronto
+                para acordar às <strong>6h50</strong>
+                no dia seguinte.
+            </p>
+
+        </section>
+
+
+        <!-- CONCLUSÃO -->
+        <section class="conclusao">
+
+            <h2>🌟 Conclusão</h2>
+
+            <p>
+                Essa é a minha rotina diária! É um dia simples,
+                mas cheio de atividades e momentos que fazem
+                parte da minha vida.
+            </p>
+
+            <p class="tchau">
+                Espero que tenham gostado de conhecer
+                um pouco mais sobre o meu dia a dia!
+                <br><br>
+                <strong>Até o próximo blog! 👋😊</strong>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            © 2026 <strong>Blog do Pietro</strong> |
+            Minha Rotina Diária 💙
+        </p>
+
+    </footer>
+
+</body>
+</html>
