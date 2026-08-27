@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog do Pietro | Minha Rotina</title>
+
+    <!-- Conexão com o CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <div class="logo">
+            ✨ Meu Blog Pessoal ✨
+        </div>
+
+        <h1>Blog do Pietro</h1>
+
+        <p>
+            Minha rotina diária, meus momentos e um pouco
+            sobre o meu dia a dia.
+        </p>
+
+        <a href="#rotina" class="botao">
+            Conheça minha rotina ↓
+        </a>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main id="rotina">
+
+        <section class="introducao">
+
+            <h2>Minha Rotina Diária</h2>
+
+            <p>
+                Oi, pessoal! 👋 Eu sou o Pietro e hoje vou
+                contar como é um dia normal da minha vida.
+            </p>
+
+        </section>
+
+
+        <!-- CARDS DA ROTINA -->
+        <section class="cards">
+
+            <!-- MANHÃ -->
+            <div class="card">
+
+                <span class="icone">🌅</span>
+
+                <h3>De manhã</h3>
+
+                <p>
+                    Eu acordo por volta das <strong>6h50</strong>
+                    e me preparo para ir à escola.
+                    Fico lá até aproximadamente
+                    <strong>12h20</strong>.
+                </p>
+
+                <span class="horario">
+                    ⏰ 6h50 — 12h20
+                </span>
+
+            </div>
+
+
+            <!-- ALMOÇO -->
+            <div class="card">
+
+                <span class="icone">🍽️</span>
+
+                <h3>Hora do almoço</h3>
+
+                <p>
+                    Depois da escola, volto para casa,
+                    almoço e descanso um pouco antes
+                    de continuar minhas atividades.
+                </p>
+
+                <span class="horario">
+                    🏠 Depois da escola
+                </span>
+
+            </div>
+
+
+            <!-- TARDE -->
+            <div class="card">
+
+                <span class="icone">🏡</span>
+
+                <h3>À tarde</h3>
+
+                <p>
+                    Depois do almoço, mexo um pouco no celular
+                    e faço os serviços diários.
+                </p>
+
+                <span class="horario">
+                    📱 Tempo da tarde
+                </span>
+
+            </div>
+
+
+            <!-- DIVERSÃO -->
+            <div class="card">
+
+                <span class="icone">⚽</span>
+
+                <h3>Hora da diversão</h3>
+
+                <p>
+                    Depois das minhas tarefas, gosto de
+                    jogar bola com meu irmão.
+                    É uma das partes que mais gosto!
+                </p>
+
+                <span class="horario">
+                    ⚽ Momento divertido
+                </span>
+
+            </div>
+
+
+            <!-- BANHO -->
+            <div class="card">
+
+                <span class="icone">🚿</span>
+
+                <h3>Hora do banho</h3>
+
+                <p>
+                    Quando chega perto das
+                    <strong>18h30</strong>, vou tomar banho.
+                    Depois, continuo mexendo um pouco no celular.
+                </p>
+
+                <span class="horario">
+                    ⏰ 18h30
+                </span>
+
+            </div>
+
+
+            <!-- NOITE -->
+            <div class="card">
+
+                <span class="icone">🌙</span>
+
+                <h3>À noite</h3>
+
+                <p>
+                    Por volta das <strong>20h00</strong>,
+                    vou jantar. Depois da refeição,
+                    lavo a louça.
+                </p>
+
+                <span class="horario">
+                    🍽️ 20h00
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- HORA DE DORMIR -->
+        <section class="destaque">
+
+            <h2>😴 Hora de descansar</h2>
+
+            <p>
+                Quando chega perto das <strong>22h00</strong>,
+                vou dormir para descansar e estar pronto
+                para acordar às <strong>6h50</strong>
+                no dia seguinte.
+            </p>
+
+        </section>
+
+
+        <!-- CONCLUSÃO -->
+        <section class="conclusao">
+
+            <h2>🌟 Conclusão</h2>
+
+            <p>
+                Essa é a minha rotina diária! É um dia simples,
+                mas cheio de atividades e momentos que fazem
+                parte da minha vida.
+            </p>
+
+            <p class="tchau">
+                Espero que tenham gostado de conhecer
+                um pouco mais sobre o meu dia a dia!
+                <br><br>
+
+                <strong>Até o próximo blog! 👋😊</strong>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            © 2026 <strong>Blog do Pietro</strong> |
+            Minha Rotina Diária 💙
+        </p>
+
+    </footer>
+
+</body>
+</html>
